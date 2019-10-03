@@ -1,0 +1,48 @@
+﻿<Application x:Class="AgentsResource.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:AgentsResource"
+             StartupUri="MainWindow.xaml">
+
+    
+
+    <Application.Resources>
+        <SolidColorBrush x:Key="BackgroundBrush" Color="Bisque"/>
+        <Style x:Key="textBoxStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Control.FontSize" Value="12pt"></Setter>
+            <Setter Property="Control.FontWeight" Value="Bold"></Setter>
+        </Style>
+
+        <Style x:Key="007Style" TargetType="{x:Type TextBox}" BasedOn="{StaticResource textBoxStyle}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=CurrentAgent.ID}" Value="007">
+                    <Setter Property="Foreground" Value="Green"></Setter>
+                </DataTrigger>
+
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Style.Setters>
+                <Setter Property="Height" Value="32" />
+                <Setter Property="Width" Value="32" />
+                <Setter Property="Foreground" Value="DarkBlue" />
+                <Setter Property="FontWeight" Value="ExtraBold" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontFamily" Value="Arial" />
+            </Style.Setters>
+            <Style.Triggers>
+                <Trigger Property="Button.IsMouseOver" Value="True">
+                    <Setter Property="Effect">
+                        <Setter.Value>
+                            <DropShadowEffect ShadowDepth="2"></DropShadowEffect>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </Application.Resources>
+</Application>
+
+
